@@ -1,0 +1,14 @@
+<%= simple_form_for @project do |p| %>
+  <% if @company.persisted? %>
+    <h2>Your company : <%= @company.name %></h2>
+  <% else %>
+    <%= p.simple_fields_for @company do |c| %>
+      <h2>Your company</h2>
+      <%= c.input :name %>
+    <% end %>
+  <% end %>
+  <h2>Your project</h2>
+  <%= p.input :name %>
+  <%= p.input :description %>
+  <%= p.submit %>
+<% end %>
